@@ -2,9 +2,9 @@ public class Main {
     public static void main(String[] args) {
         try {
             Posicion posInicial = new Posicion(1,1);
-            Personaje personaje = new Personaje(posInicial);
+            Jugador jugador = new Jugador(posInicial);
             Habitacion habitacion = new Habitacion();
-            habitacion.setJugador(personaje);
+            habitacion.setJugador(jugador);
             //Creamos la habitación
 
 

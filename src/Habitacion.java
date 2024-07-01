@@ -4,7 +4,8 @@ public class Habitacion {
     public static final int ALTO=10;
     private Posicion puertaEntrada;
     private Posicion puertaSalida;
-    private Personaje jugador;
+    private Jugador jugador;
+    private Personaje personaje;
 
 
     public Habitacion(){
@@ -37,15 +38,18 @@ public class Habitacion {
                 "Puerta de salida colocada en localización incorrecta\n" +
                 "Valores permitidos: 1-8 en eje Y eje X 9 ó 0");
     }
-    public void setJugador(Personaje j){
+    public void setJugador(Jugador j){
         if ((j.posicion.getPosX() != 0 && j.posicion.getPosX() != ANCHO -1) && (j.posicion.getPosY() != 0 && j.posicion.getPosY() != ALTO -1)){
             this.jugador = j;
         }else throw new JugadorColocadoIncorrectamente("Jugador Colocado en posición incorrecta\n" +
                 "Valores Correctos: X = 1-8 Y = 1-8");
 
     }
+    public void setPersonaje(Personaje p){
+        this.personaje = p;
+    }
 
-    public Personaje getJugador() {
+    public Jugador getJugador() {
         return jugador;
     }
     public boolean esPuerta(Posicion p){
