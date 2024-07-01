@@ -2,8 +2,8 @@ public class Habitacion {
 
     public static final int ANCHO=10;
     public static final int ALTO=10;
-    Posicion puertaEntrada;
-    Posicion puertaSalida;
+    private Posicion puertaEntrada;
+    private Posicion puertaSalida;
     private Personaje jugador;
 
 
@@ -47,5 +47,9 @@ public class Habitacion {
 
     public Personaje getJugador() {
         return jugador;
+    }
+    public boolean esPuerta(Posicion p){
+        if (p.esIgual(puertaEntrada) || p.esIgual(puertaSalida))return true;
+        return false;
     }
 }

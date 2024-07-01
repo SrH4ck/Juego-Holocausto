@@ -9,7 +9,7 @@ public class Main {
 
 
             //Posicion de las puerta de entrada y salida
-            Posicion puertaEntrada = new Posicion(8,9);
+            Posicion puertaEntrada = new Posicion(1,9);
             habitacion.setPuertaEntrada(puertaEntrada);
             Posicion puertaSalida = new Posicion(9,1);
             habitacion.setPuertaSalida(puertaSalida);

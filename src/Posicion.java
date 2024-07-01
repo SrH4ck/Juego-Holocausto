@@ -24,4 +24,8 @@ public class Posicion {
     public void setPosY(int posY) {
         this.posY = posY;
     }
+
+    public boolean esIgual(Posicion p){
+        return p.getPosX() == this.posX && p.getPosY() == this.posY;
+    }
 }
