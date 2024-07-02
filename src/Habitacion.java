@@ -3,7 +3,7 @@ public class Habitacion {
     public static final int ANCHO=10;
     public static final int ALTO=10;
     private Posicion puertaEntrada;
-    private Posicion puertaSalida;
+    private static Posicion puertaSalida;
     private Jugador jugador;
     private Personaje personaje;
 

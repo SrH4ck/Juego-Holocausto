@@ -7,7 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         try {
             Posicion puertaEntrada = new Posicion(1,9);
-            Posicion jugadorPuertaEntrada = new Posicion(puertaEntrada.getPosX(), puertaEntrada.getPosY()-1);
+            Posicion jugadorPuertaEntrada = new Posicion(8,1);
 
             Jugador jugador = new Jugador(jugadorPuertaEntrada);
 
@@ -50,9 +50,11 @@ public class Main {
                             }else {
                                 int nuevaPosicionX = jugador.getPosicion().getPosX() + numMovX;
                                 int nuevaPosicionY = jugador.getPosicion().getPosY() + numMovY;
-                                if ((nuevaPosicionY > 0 && nuevaPosicionX > 0) && (nuevaPosicionY < Habitacion.ALTO-1 && nuevaPosicionX < Habitacion.ANCHO -1)){
-                                    Posicion nuevaPosicion = new Posicion(nuevaPosicionX,nuevaPosicionY);
-                                    jugador.setPosicion(nuevaPosicion);
+                                if ((nuevaPosicionY > 0 && nuevaPosicionX > 0) && (nuevaPosicionY < Habitacion.ALTO-1 && nuevaPosicionX < Habitacion.ANCHO -1) ||
+                                        (habitacion.getPuertaSalida().getPosX() == nuevaPosicionX) &&
+                                                habitacion.getPuertaSalida().getPosY() == +nuevaPosicionY){
+                                    jugador.moverse(nuevaPosicionX,nuevaPosicionY);
+                                    if (jugador.haSalido()) throw new JugadorGana("Has ganado!!");
                                 }else{
                                     System.out.println("Posición no posible. ");
                                 }
@@ -65,7 +67,7 @@ public class Main {
                 }
             }
 
-        }catch (PuertaColocadaEnLocalizacionIncorrecta | JugadorColocadoIncorrectamente e){
+        }catch (PuertaColocadaEnLocalizacionIncorrecta | JugadorColocadoIncorrectamente  | JugadorGana e){
             System.out.println(e.getMessage());
         }catch (InputMismatchException i){
             System.out.println("No has introducido un número");
