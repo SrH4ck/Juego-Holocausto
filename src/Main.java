@@ -38,7 +38,7 @@ public class Main {
                         System.out.println("\nCuantos movimientos quieres gastar para moverte en horizontal número positivo \n" +
                                 "para moverte  a la derecha , número negativo para moverte a la izquierda");
                         int numMovX = sc.nextInt();
-                        if (numMovX > tiradaDado){
+                        if (Math.abs(numMovX) > tiradaDado){
                             System.out.println("Has introducido un movimiento mayor al permitido");
                         }else{
                             tiradaDado -= Math.abs(numMovX);
@@ -47,7 +47,7 @@ public class Main {
                             System.out.println("\nCuantos movimientos quieres gastar para moverte en vertical número positivo\n" +
                                     "para moverte hacia abajo, número negativo para moverte hacia arriba");
                             int numMovY = sc.nextInt();
-                            if (numMovY > tiradaDado){
+                            if (Math.abs(numMovY) > tiradaDado){
                                 System.out.println("\nHas introducido un movimiento mayor al permitido\n");
                             }else {
                                 int nuevaPosicionX = jugador.getPosicion().getPosX() + numMovX;
