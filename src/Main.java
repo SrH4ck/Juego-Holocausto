@@ -2,8 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Dado dado1 = new Dado();
-        Dado dado2 = new Dado();
+        Dado dado = new Dado();
         int accionJuego = -1;
         Scanner sc = new Scanner(System.in);
         try {
@@ -32,19 +31,35 @@ public class Main {
                         break;
                     case Juego.LANZAR_DADO:
                         //Lanzar el dado de movimiento
-                        System.out.println("lanzar dado");
-                        int tiradaDado1 = jugador.lanzarDado(dado1);
-                        int tiradaDado2 = jugador.lanzarDado(dado2);
-                        System.out.println("Valor de los dados lanzados: \n" +
-                                "Dado 1 -> " + tiradaDado1 + "\n" +
-                                "Dado 2 -> " + tiradaDado2);
-                        Posicion nuevaPosicion = new Posicion(tiradaDado1,tiradaDado2);
-                        jugador.setPosicion(nuevaPosicion);
+                        int tiradaDado = jugador.lanzarDado(dado);
+                        System.out.println("Valor del dado lanzado: \n" +
+                                "Dado --> " + tiradaDado);
+                        System.out.println("Números de movimiento en horizontal " + tiradaDado);
+                        System.out.println("Números de movimiento en vertical" + tiradaDado);
+                        System.out.println("Cuantos movimientos quieres gastar para moverte en horizontal");
+                        int numMovX = sc.nextInt();
+                        if (numMovX > tiradaDado){
+                            System.out.println("Has introducido un movimiento mayor al permitido");
+                        }else{
+                            tiradaDado -= numMovX;
+                            System.out.println("Números de movimiento en el EJE X " + tiradaDado);
+                            System.out.println("Números de movimiento en el EJE Y " + tiradaDado);
+                            System.out.println("Cuantos movimientos quieres gastar para moverte en vertical");
+                            int numMovY = sc.nextInt();
+                            if (numMovY > tiradaDado){
+                                System.out.println("\nHas introducido un movimiento mayor al permitido\n");
+                            }else {
+                                int nuevaPosicionX = jugador.getPosicion().getPosX() + numMovX;
+                                int nuevaPosicionY = jugador.getPosicion().getPosY() + numMovY;
+                                Posicion nuevaPosicion = new Posicion(nuevaPosicionX,nuevaPosicionY);
+                                jugador.setPosicion(nuevaPosicion);
+                            }
+                        }
                         break;
                     default:
                         System.err.println("No has introducido una opción válida. Vuelve a intentarlo");
+                        break;
                 }
-
             }
 
         }catch (PuertaColocadaEnLocalizacionIncorrecta | JugadorColocadoIncorrectamente e){
