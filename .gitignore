@@ -29,3 +29,4 @@ bin/
 .DS_Store
 .idea
 Juego Holocausto.iml
+src/Main_structure.puml

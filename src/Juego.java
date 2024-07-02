@@ -15,9 +15,13 @@ public class Juego {
                     }
                     else System.out.print(" "); //Mapa
                     if (colum == Habitacion.ANCHO -1) System.out.println(); // siguiente linea
-
                 }
-
             }
+    }
+    public static void pintarMenu(){
+        System.out.println("-------------- HOLOCAUSTO H (HADRON) --------------");
+        System.out.println("[1] LANZAR DADO DE MOVIMIENTO");
+        System.out.println("[0] SALIR DEL JUEGO");
+        System.out.println("---------------------------------------------------");
     }
 }

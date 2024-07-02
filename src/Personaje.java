@@ -7,6 +7,7 @@ public class Personaje {
 
     public Personaje(Posicion posicion){
         this.posicion = posicion;
+
     }
 
     //GETTERS Y SETTERS
