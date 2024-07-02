@@ -2,12 +2,11 @@ public class Personaje {
 
     //Propiedades
     private String nombre;
-    Posicion posicion;
+    private Posicion posicion;
 
 
     public Personaje(Posicion posicion){
         this.posicion = posicion;
-
     }
 
     //GETTERS Y SETTERS

@@ -39,7 +39,7 @@ public class Habitacion {
                 "Valores permitidos: 1-8 en eje Y eje X 9 ó 0");
     }
     public void setJugador(Jugador j){
-        if ((j.posicion.getPosX() != 0 && j.posicion.getPosX() != ANCHO -1) && (j.posicion.getPosY() != 0 && j.posicion.getPosY() != ALTO -1)){
+        if ((j.getPosicion().getPosX() != 0 && j.getPosicion().getPosX() != ANCHO -1) && (j.getPosicion().getPosY() != 0 && j.getPosicion().getPosY() != ALTO -1)){
             this.jugador = j;
         }else throw new JugadorColocadoIncorrectamente("Jugador Colocado en posición incorrecta\n" +
                 "Valores Correctos: X = 1-8 Y = 1-8");

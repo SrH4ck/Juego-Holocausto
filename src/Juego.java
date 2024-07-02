@@ -1,5 +1,7 @@
 public class Juego {
 
+    final static int SALIR_DEL_JUEGO = 0;
+    final static int LANZAR_DADO = 1;
     public Juego(){
 
     }

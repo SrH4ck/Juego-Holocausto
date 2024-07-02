@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 public class Dado {
-    private int caras;
+    private final int caras;
 
     public Dado(){
         this.caras = 9;

@@ -22,23 +22,28 @@ public class Main {
             habitacion.setPuertaSalida(puertaSalida);
 
 
-            while (accionJuego != 0){
+            while (accionJuego != Juego.SALIR_DEL_JUEGO){
                 Juego.pintarHabitacion(habitacion);
                 Juego.pintarMenu();
                 accionJuego = sc.nextInt();
-                if (accionJuego != 0 && accionJuego !=1){
-                    accionJuego = -1;
-                    System.err.println("No has introducido correctamente la acción, vuelve a intentarlo");
+                switch (accionJuego){
+                    case Juego.SALIR_DEL_JUEGO:
+                        System.out.println("Saliendo del juego...");
+                        break;
+                    case Juego.LANZAR_DADO:
+                        //Lanzar el dado de movimiento
+                        System.out.println("lanzar dado");
+                        int tiradaDado1 = jugador.lanzarDado(dado1);
+                        int tiradaDado2 = jugador.lanzarDado(dado2);
+                        System.out.println("Valor de los dados lanzados: \n" +
+                                "Dado 1 -> " + tiradaDado1 + "\n" +
+                                "Dado 2 -> " + tiradaDado2);
+                        Posicion nuevaPosicion = new Posicion(tiradaDado1,tiradaDado2);
+                        jugador.setPosicion(nuevaPosicion);
+                        break;
+                    default:
+                        System.err.println("No has introducido una opción válida. Vuelve a intentarlo");
                 }
-                if (accionJuego == 1){
-                    //Lanzar el dado de movimiento
-                    System.out.println("lanzar dado");
-                    int tiradaDado1 = jugador.lanzarDado(dado1);
-                    int tiradaDado2 = jugador.lanzarDado(dado2);
-                    Posicion nuevaPosicion = new Posicion(tiradaDado1,tiradaDado2);
-                    jugador.setPosicion(nuevaPosicion);
-                }
-
 
             }
 
