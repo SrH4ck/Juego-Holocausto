@@ -20,7 +20,6 @@ public class Main {
             Posicion puertaSalida = new Posicion(9,1);
             habitacion.setPuertaSalida(puertaSalida);
 
-
             while (accionJuego != Juego.SALIR_DEL_JUEGO){
                 Juego.pintarHabitacion(habitacion);
                 Juego.pintarMenu();
@@ -35,24 +34,30 @@ public class Main {
                         System.out.println("Valor del dado lanzado: \n" +
                                 "Dado --> " + tiradaDado);
                         System.out.println("Números de movimiento en horizontal " + tiradaDado);
-                        System.out.println("Números de movimiento en vertical" + tiradaDado);
-                        System.out.println("Cuantos movimientos quieres gastar para moverte en horizontal");
+                        System.out.println("Números de movimiento en vertical " + tiradaDado);
+                        System.out.println("\nCuantos movimientos quieres gastar para moverte en horizontal número positivo \n" +
+                                "para moverte  a la derecha , número negativo para moverte a la izquierda");
                         int numMovX = sc.nextInt();
                         if (numMovX > tiradaDado){
                             System.out.println("Has introducido un movimiento mayor al permitido");
                         }else{
-                            tiradaDado -= numMovX;
-                            System.out.println("Números de movimiento en el EJE X " + tiradaDado);
-                            System.out.println("Números de movimiento en el EJE Y " + tiradaDado);
-                            System.out.println("Cuantos movimientos quieres gastar para moverte en vertical");
+                            tiradaDado -= Math.abs(numMovX);
+                            System.out.println("Números de movimiento en horizontal " + tiradaDado);
+                            System.out.println("Números de movimiento en vertical " + tiradaDado);
+                            System.out.println("\nCuantos movimientos quieres gastar para moverte en vertical número positivo\n" +
+                                    "para moverte hacia abajo, número negativo para moverte hacia arriba");
                             int numMovY = sc.nextInt();
                             if (numMovY > tiradaDado){
                                 System.out.println("\nHas introducido un movimiento mayor al permitido\n");
                             }else {
                                 int nuevaPosicionX = jugador.getPosicion().getPosX() + numMovX;
                                 int nuevaPosicionY = jugador.getPosicion().getPosY() + numMovY;
-                                Posicion nuevaPosicion = new Posicion(nuevaPosicionX,nuevaPosicionY);
-                                jugador.setPosicion(nuevaPosicion);
+                                if ((nuevaPosicionY > 0 && nuevaPosicionX > 0) && (nuevaPosicionY < Habitacion.ALTO-1 && nuevaPosicionX < Habitacion.ANCHO -1)){
+                                    Posicion nuevaPosicion = new Posicion(nuevaPosicionX,nuevaPosicionY);
+                                    jugador.setPosicion(nuevaPosicion);
+                                }else{
+                                    System.out.println("Posición no posible. ");
+                                }
                             }
                         }
                         break;
