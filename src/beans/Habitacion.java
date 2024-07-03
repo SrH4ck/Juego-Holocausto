@@ -9,6 +9,9 @@ public class Habitacion {
     public static final int ANCHO=20;
     public static final int ALTO=20;
 
+    //conjunto de objetos del juego
+    private ObjetoJuego[] objetosJuego=new ObjetoJuego[20];
+    private int numObjetos = 0;
     private Posicion puertaEntrada;
     private static Posicion puertaSalida;
     private Jugador jugador;
@@ -53,8 +56,8 @@ public class Habitacion {
                 "Valores Correctos: X = 1-" + (Habitacion.ANCHO -2) +" Y = 1-"+ (Habitacion.ALTO -2));
 
     }
-    public void setPersonaje(Personaje p){
-        this.personaje = p;
+    public void setObjetosJuego(ObjetoJuego obj){
+        objetosJuego[numObjetos]=obj;
     }
 
     public Jugador getJugador() {

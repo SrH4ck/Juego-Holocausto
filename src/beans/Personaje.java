@@ -1,34 +1,13 @@
 package beans;
 
-public class Personaje {
-
-    //Propiedades
-    private String nombre;
-    private Posicion posicion;
-
+public class Personaje extends ObjetoJuego{
 
     public Personaje(Posicion posicion){
-        this.posicion = posicion;
+        super(posicion);
     }
 
     public void moverse(int nuevaPosicionX, int nuevaPosicionY) {
         Posicion nuevaPosicion = new Posicion(nuevaPosicionX,nuevaPosicionY);
         setPosicion(nuevaPosicion);
-    }
-    //GETTERS Y SETTERS
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Posicion getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(Posicion pos) {
-        this.posicion = pos;
     }
 }
