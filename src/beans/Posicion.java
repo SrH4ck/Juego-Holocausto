@@ -1,3 +1,5 @@
+package beans;
+
 public class Posicion {
     private int posX;
     private int posY;

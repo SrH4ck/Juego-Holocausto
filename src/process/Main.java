@@ -1,3 +1,10 @@
+package process;
+
+import beans.*;
+import exceptions.JugadorColocadoIncorrectamente;
+import exceptions.JugadorGana;
+import exceptions.PuertaColocadaEnLocalizacionIncorrecta;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
@@ -43,7 +50,7 @@ public class Main {
 
                         //Mensajes informativos
                         System.out.println("Valor del dado lanzado: \n" +
-                                "Dado --> " + movimientosPosibles);
+                                "beans.Dado --> " + movimientosPosibles);
                         System.out.println("Números de movimiento en horizontal " + movimientosPosibles);
                         System.out.println("Números de movimiento en vertical " + movimientosPosibles);
                         System.out.println("\nCuantos movimientos quieres gastar para moverte en horizontal número positivo \n" +
@@ -82,11 +89,13 @@ public class Main {
                                 int nuevaPosicionY = jugador.getPosicion().getPosY() + numMovY;
 
                                 /* Validamos que la posición esté dentro de los parámetros de anchura y altura del mapa,
-                                también verificamos si la nueva posición coincide con la salida para poder moverse hasta ella y ganar
+                                también verificamos si la nueva posición coincide con la salida para poder moverse hasta
+                                ella y ganar
                                  */
                                 if ((nuevaPosicionY > 0 && nuevaPosicionX > 0) && (nuevaPosicionY < Habitacion.ALTO-1 && nuevaPosicionX < Habitacion.ANCHO -1) ||
                                         (habitacion.getPuertaSalida().getPosX() == nuevaPosicionX) &&
-                                                habitacion.getPuertaSalida().getPosY() == +nuevaPosicionY){
+                                                habitacion.getPuertaSalida().getPosY() == nuevaPosicionY){
+
                                     jugador.moverse(nuevaPosicionX,nuevaPosicionY);
 
                                     //Si el jugador ha entrado en la puerta de salida lanzamos la excepción
@@ -104,7 +113,7 @@ public class Main {
                 }
             }
 
-        }catch (PuertaColocadaEnLocalizacionIncorrecta | JugadorColocadoIncorrectamente  | JugadorGana e){
+        }catch (PuertaColocadaEnLocalizacionIncorrecta | JugadorColocadoIncorrectamente | JugadorGana e){
             System.out.println(e.getMessage());
         }catch (InputMismatchException i){
             System.out.println("No has introducido un número");

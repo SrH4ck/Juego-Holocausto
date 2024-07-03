@@ -1,3 +1,8 @@
+package beans;
+
+import exceptions.JugadorColocadoIncorrectamente;
+import exceptions.PuertaColocadaEnLocalizacionIncorrecta;
+
 public class Habitacion {
 
     // asignamos el tamaño del mapa modificando estas dos propiedades
@@ -44,7 +49,7 @@ public class Habitacion {
     public void setJugador(Jugador j){
         if ((j.getPosicion().getPosX() != 0 && j.getPosicion().getPosX() != ANCHO -1) && (j.getPosicion().getPosY() != 0 && j.getPosicion().getPosY() != ALTO -1)){
             this.jugador = j;
-        }else throw new JugadorColocadoIncorrectamente("Jugador Colocado en posición incorrecta\n" +
+        }else throw new JugadorColocadoIncorrectamente("beans.Jugador Colocado en posición incorrecta\n" +
                 "Valores Correctos: X = 1-" + (Habitacion.ANCHO -2) +" Y = 1-"+ (Habitacion.ALTO -2));
 
     }

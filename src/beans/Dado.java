@@ -1,3 +1,5 @@
+package beans;
+
 import java.util.concurrent.ThreadLocalRandom;
 public class Dado {
     private final int caras;

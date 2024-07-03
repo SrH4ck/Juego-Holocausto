@@ -1,3 +1,5 @@
+package beans;
+
 public class Personaje {
 
     //Propiedades
@@ -9,6 +11,10 @@ public class Personaje {
         this.posicion = posicion;
     }
 
+    public void moverse(int nuevaPosicionX, int nuevaPosicionY) {
+        Posicion nuevaPosicion = new Posicion(nuevaPosicionX,nuevaPosicionY);
+        setPosicion(nuevaPosicion);
+    }
     //GETTERS Y SETTERS
     public String getNombre() {
         return nombre;

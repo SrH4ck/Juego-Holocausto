@@ -1,3 +1,8 @@
+package process;
+
+import beans.Habitacion;
+import beans.Posicion;
+
 public class Juego {
 
     final static int SALIR_DEL_JUEGO = 0;
