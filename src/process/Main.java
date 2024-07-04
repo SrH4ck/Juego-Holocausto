@@ -15,23 +15,17 @@ public class Main {
         try {
             // Creamos la habitación
             Habitacion habitacion = new Habitacion();
-
-            //Asignamos la posición de las puertas en la habitación
-            Posicion puertaEntrada = new Posicion(1,Habitacion.ALTO-1);
-            Posicion puertaSalida = new Posicion(Habitacion.ANCHO-1,1);
-
-            // se resta 1 para que se coloque justamente delante y "dentro"
-            Posicion jugadorPuertaEntrada = new Posicion(puertaEntrada.getPosX(), puertaEntrada.getPosY()-1);
+            //Posicionamos la puerta de entrada
+            habitacion.generarPuertaEntrada();
+            //Posicionamos la puerta de salida
+            habitacion.generarPuertaSalida();
 
             //Posicionamos al jugador
-            Jugador jugador = new Jugador(jugadorPuertaEntrada);
+            Posicion colocarJugadorPuertaEntrada = new Posicion(habitacion.getPuertaEntrada().getPosX(),habitacion.getPuertaEntrada().getPosY()-1);
+            Jugador jugador = new Jugador(colocarJugadorPuertaEntrada);
             habitacion.setJugador(jugador);
 
-            //Posicionamos la puerta de entrada
-            habitacion.setPuertaEntrada(puertaEntrada);
 
-            //Posicionamos la puerta de salida
-            habitacion.setPuertaSalida(puertaSalida);
 
             while (accionJuego != Juego.SALIR_DEL_JUEGO){
                 Juego.pintarHabitacion(habitacion);

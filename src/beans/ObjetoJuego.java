@@ -4,12 +4,11 @@ public class ObjetoJuego {
     //Propiedades
     private String nombre;
     private Posicion posicion;
-    private String LETRA_MAPA="";
+    private String letraMapa="";
 
 
     public ObjetoJuego(Posicion posicion){
         this.posicion = posicion;
-
     }
 
     //GETTERS Y SETTERS
@@ -30,10 +29,10 @@ public class ObjetoJuego {
     }
 
     public String getLETRA_MAPA() {
-        return LETRA_MAPA;
+        return letraMapa;
     }
 
-    public void setLETRA_MAPA(String LETRA_MAPA) {
-        this.LETRA_MAPA = LETRA_MAPA;
+    public void setLETRA_MAPA(String letraMapa) {
+        this.letraMapa = letraMapa;
     }
 }

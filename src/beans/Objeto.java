@@ -1,10 +1,10 @@
 package beans;
 
-public class Objeto {
+public class Objeto extends ObjetoJuego{
     private int peso = 0;
 
-    public Objeto(){
-
+    public Objeto(Posicion posicion){
+        super(posicion);
     }
 
     public int getPeso() {
